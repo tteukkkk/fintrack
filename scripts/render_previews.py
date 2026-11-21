@@ -13,6 +13,9 @@ sys.path.insert(0,str(ROOT))
 from fintrack.app import app
 PREV=ROOT/'previews';PREV.mkdir(exist_ok=True)
 CSS=re.sub(r'^@import[^\n]*\n','',(ROOT/'static/style.css').read_text(),count=1)
+# Valida a iluminação amarela do login antes de atualizar as capturas públicas.
+assert 'rgba(144,102,246,.15)' not in CSS, 'Login ainda está com o brilho roxo antigo.'
+assert 'rgba(255,228,83' in CSS, 'Não foi encontrada a iluminação amarela do login.'
 JS=(ROOT/'static/app.js').read_text()
 AUTHJS=(ROOT/'static/auth.js').read_text()
 month=date.today().strftime('%Y-%m');from datetime import timedelta
