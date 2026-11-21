@@ -1,0 +1,4 @@
+data;tipo;descricao;valor;categoria;metodo;observacao
+2026-11-05;despesa;Mercado;89,90;Alimentação;pix;Compra de exemplo
+2026-11-06;receita;Projeto;850,00;Freelance;transferencia;Dado fictício
+2026-11-07;despesa;Transporte;35,00;Transporte;cartao;Passagem de exemplo

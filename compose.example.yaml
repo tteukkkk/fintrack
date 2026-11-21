@@ -1,0 +1,15 @@
+# Apenas desenvolvimento LOCAL. Não expor sem HTTPS e endurecimento de produção.
+services:
+  fintrack:
+    build: .
+    environment:
+      FINTRACK_DATABASE_URL: sqlite:////data/fintrack.sqlite3
+      FINTRACK_HOST: 0.0.0.0
+      FINTRACK_PORT: "8020"
+      FINTRACK_HTTPS_ONLY: "0"
+    ports:
+      - "127.0.0.1:8020:8020"
+    volumes:
+      - fintrack_local_data:/data
+volumes:
+  fintrack_local_data:
