@@ -78,7 +78,7 @@ h1,h2,h3,p{overflow-wrap:break-word}
 .pills span{font-size:10px;padding:6px 10px;border:1px solid currentColor;border-radius:100px;font-weight:800;opacity:.72}
 .hero-media{position:relative;min-width:0;padding-bottom:20px}
 .hero-media .screen{display:block;width:100%;border:clamp(5px,.6vw,10px) solid var(--surface);border-radius:16px;box-shadow:var(--soft-shadow);background:var(--surface-2);overflow:hidden}
-.hero-media img{width:100%;height:clamp(270px,34vw,630px);object-fit:contain;object-position:center center;background:var(--surface-2)}
+.hero-media img{width:100%;height:clamp(270px,34vw,630px);object-fit:cover;object-position:top center;background:var(--surface-2)}
 .hero-media .media-label{position:absolute;bottom:0;right:12px;background:var(--surface);color:var(--ink);border:1px solid var(--border);font-size:10px;font-weight:800;letter-spacing:1px;border-radius:8px;padding:10px 13px;box-shadow:var(--soft-shadow)}
 .section{padding-block:clamp(65px,6.8vw,115px)}
 .section-heading{display:flex;gap:28px;justify-content:space-between;align-items:flex-end;margin-bottom:32px}
@@ -92,7 +92,7 @@ h1,h2,h3,p{overflow-wrap:break-word}
 .screen-card{min-width:0;overflow:hidden;border-radius:15px;border:1px solid var(--border);background:var(--surface);display:flex;flex-direction:column}
 .screen-card[hidden]{display:none!important}
 .screen-open{display:block;width:100%;padding:13px;background:var(--surface-2);border:none;text-align:left;min-height:0}
-.screen-open img{width:100%;height:clamp(190px,17vw,320px);object-fit:contain;object-position:center;background:var(--surface-2);border:1px solid var(--border);border-radius:7px;transition:transform .28s ease}
+.screen-open img{width:100%;height:clamp(190px,17vw,320px);object-fit:cover;object-position:top center;background:var(--surface-2);border:1px solid var(--border);border-radius:7px;transition:transform .28s ease}
 .screen-open:hover img{transform:scale(1.02)}
 .screen-card[data-kind=mobile] .screen-open img{height:340px;object-fit:contain}
 .screen-meta{padding:20px 23px 24px;flex:1}
