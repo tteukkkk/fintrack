@@ -41,7 +41,7 @@ def html_template(name):
     return html
 
 with sync_playwright() as pw:
-    browser=pw.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
+    browser=pw.chromium.launch(**({'executable_path':'/usr/bin/chromium'} if Path('/usr/bin/chromium').exists() else {}),headless=True,args=['--no-sandbox','--disable-dev-shm-usage'])
     issues=[]
     def capture_static(name,file,theme='light',w=1440,h=920):
         page=browser.new_page(viewport={'width':w,'height':h},device_scale_factor=1)
@@ -53,7 +53,9 @@ with sync_playwright() as pw:
     capture_static('landing-claro','landing.html')
     capture_static('landing-escuro','landing.html','dark')
     capture_static('login-claro','auth.html')
+    capture_static('login-escuro','auth.html','dark')
     capture_static('landing-mobile','landing.html','light',390,844)
+    capture_static('landing-mobile-escuro','landing.html','dark',390,844)
     def app_capture(name,view='dashboard',theme='light',w=1440,h=920):
         page=browser.new_page(viewport={'width':w,'height':h},device_scale_factor=1,locale='pt-BR',reduced_motion='reduce')
         page.on('pageerror',lambda exc:issues.append([name,str(exc)]))
@@ -86,15 +88,22 @@ with sync_playwright() as pw:
     app_capture('painel-claro')
     app_capture('painel-escuro',theme='dark')
     app_capture('lancamentos-claro','transactions')
+    app_capture('lancamentos-escuro','transactions','dark')
     app_capture('orcamentos-claro','budgets')
     app_capture('orcamentos-escuro','budgets','dark')
     app_capture('metas-claro','goals')
     app_capture('metas-escuro','goals','dark')
     app_capture('recorrentes-claro','recurrences')
+    app_capture('recorrentes-escuro','recurrences','dark')
+    app_capture('relatorios-claro','reports')
     app_capture('relatorios-escuro','reports','dark')
     app_capture('importar-claro','imports')
+    app_capture('importar-escuro','imports','dark')
     app_capture('configuracoes-claro','settings')
+    app_capture('configuracoes-escuro','settings','dark')
     app_capture('painel-mobile','dashboard','light',390,844)
+    app_capture('painel-mobile-escuro','dashboard','dark',390,844)
     app_capture('metas-mobile','goals','light',390,844)
+    app_capture('metas-mobile-escuro','goals','dark',390,844)
     browser.close();print('ERROS_JS',issues)
     if issues:raise RuntimeError(str(issues))
