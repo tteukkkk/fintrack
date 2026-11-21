@@ -10,7 +10,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-Frontend-F7DF1E?logo=javascript&logoColor=black)
 ![Status](https://img.shields.io/badge/Status-Portf%C3%B3lio-555555)
 
-**[Perfil no GitHub](https://github.com/tteukkkk)** · **[Screenshots](#capturas-do-projeto)** · **[Como executar](#como-executar)**
+**[Perfil no GitHub](https://github.com/tteukkkk)** · **[Screenshots](#capturas-do-projeto)** · **[Como executar](#como-executar-no-computador)**
 
 <a href="previews/painel-claro.png"><img src="previews/painel-claro.png" alt="Interface de FinTrack" width="900" /></a>
 
@@ -26,30 +26,11 @@
 
 As demais telas (landing page, painel, relatórios, configurações e outras) estão em [`previews/`](previews/).
 
-## Como executar
-
-A seção técnica abaixo contém pré-requisitos, instalação, inicialização, testes e observações de segurança. Para uma instalação mais simples no Windows, consulte também as instruções de cada projeto.
-
----
-
+## Sobre o projeto
 
 **FinTrack** é um aplicativo de organização financeira desenvolvido para o portfólio de **Matheus Macêdo Felicio**. A plataforma combina interface amarela, preta e branca com modo claro/escuro, API Python, banco relacional e funcionalidades reais de controle financeiro.
 
 > **Estado:** versão **1.0**, funcional e validada em ambiente local com dados de demonstração. É um projeto de portfólio, **não um serviço financeiro homologado**. Não conecte contas bancárias nem use dados sensíveis de terceiros sem preparação operacional e revisão de segurança.
-
-## Prévia
-
-| Painel claro | Painel escuro |
-| --- | --- |
-| ![Painel claro](previews/painel-claro.png) | ![Painel escuro](previews/painel-escuro.png) |
-
-| Orçamentos | Metas |
-| --- | --- |
-| ![Orçamentos](previews/orcamentos-claro.png) | ![Metas](previews/metas-escuro.png) |
-
-Outras imagens: landing page, tela de login, lançamentos, recorrências, importação CSV, relatórios, configurações e interface móvel, disponíveis em `previews/`.
-
-As capturas usam os **HTML/CSS/JavaScript reais** e respostas obtidas da API FastAPI de demonstração. O Chromium do ambiente de captura bloqueou navegação HTTP local; por isso, as respostas foram fornecidas ao navegador em modo offline. O frontend também foi testado com ações reais via ponte para o FastAPI TestClient. As imagens **não** são capturas de uma hospedagem online.
 
 ## Funcionalidades
 
