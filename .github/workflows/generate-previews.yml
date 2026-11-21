@@ -1,0 +1,44 @@
+name: Regenerate public preview screenshots
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - scripts/render_previews.py
+      - .github/workflows/generate-previews.yml
+
+permissions:
+  contents: write
+
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      FINTRACK_DATABASE_URL: "sqlite:///./fintrack-pages-preview.sqlite3"
+      FINTRACK_HTTPS_ONLY: "0"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies and Chromium
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt playwright
+          python -m playwright install --with-deps chromium
+      - name: Seed disposable demo database
+        run: python -m scripts.seed_demo
+      - name: Capture light and dark interfaces
+        run: python -m scripts.render_previews
+      - name: Commit generated screenshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add previews/
+          if ! git diff --cached --quiet; then
+            git commit -m "Refresh light and dark demo screenshots"
+            git push
+          fi
